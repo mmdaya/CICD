@@ -4,7 +4,8 @@ pipeline{
         stage('Build image'){
             steps{
                 script{
-                    sh 'sudo docker build -t dayashankarmm/testimage .'
+                    sh 'chmod 777 Dockerfile'
+                    sh 'docker build -t dayashankarmm/testimage .'
                 }
             }
         }
