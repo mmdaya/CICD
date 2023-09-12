@@ -4,8 +4,14 @@ pipeline{
         stage('Build image'){
             steps{
                 script{
-                    sh 'chmod 777 Dockerfile'
                     sh 'docker build -t dayashankarmm/testimage .'
+                }
+            }
+        }
+        stage('Build Image Status'){
+            steps{
+                script{
+                    sh 'docker images'
                 }
             }
         }
