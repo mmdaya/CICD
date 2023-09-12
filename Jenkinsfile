@@ -12,7 +12,7 @@ pipeline{
             steps{
                 script{
                     withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-                         sh 'docker login -u dayashankarmm -p $(dockerhubpwd)'
+                         sh 'docker login -u dayashankarmm -p ${dockerhubpwd}'
                          sh 'docker push dayashankarmm/testimage'
                         }
                 }
