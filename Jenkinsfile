@@ -5,6 +5,7 @@ pipeline{
             steps{
                 script{
                     sh 'docker build -t dayashankarmm/testimage .'
+                    sh 'docker images'
                 }
             }
         }
