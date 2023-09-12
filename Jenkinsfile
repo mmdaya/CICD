@@ -8,10 +8,13 @@ pipeline{
                 }
             }
         }
-        stage('Build Image Status'){
+        stage('Docker Image Push'){
             steps{
                 script{
-                    sh 'docker images'
+                    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhubpwd')]) {
+                        sh 'docker login -u dayashankarmm -p $(dockerhubpwd)'
+                        sh 'docker push dayashankarmm/testimage'
+                        }
                 }
             }
         }
